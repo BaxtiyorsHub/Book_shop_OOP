@@ -9,6 +9,8 @@ public class ProfileService {
     }
 
     private void checkRequest(ProfileRequest request) {
+        if (request.age()!=null) {
 
+        }
     }
 }
