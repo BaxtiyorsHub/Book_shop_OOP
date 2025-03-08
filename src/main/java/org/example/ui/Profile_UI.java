@@ -1,10 +1,14 @@
 package org.example.ui;
 
 import org.example.ScannerUtil.ScannerUtil;
+import org.example.controller.Profile_Controller;
+import org.example.requests.ProfileRequest;
 
 public class Profile_UI {
 
-    public void start() {
+    private Profile_Controller profile_controller = new Profile_Controller();
+
+    private void adminStart() {
         while (true) {
             switch (menu()){
 
@@ -30,6 +34,15 @@ public class Profile_UI {
         return ScannerUtil.scanNUM.nextInt();
     }
 
+
+    private void userStart() {
+        while (true) {
+            switch (menu()){
+
+            }
+        }
+    }
+
     private int userMenu() {
         System.out.print("""
                 +------  MENU  -------+
@@ -44,5 +57,9 @@ public class Profile_UI {
                 +---------------------+
                 | Enter Option ->""");
         return ScannerUtil.scanNUM.nextInt();
+    }
+
+    public void register(ProfileRequest request) {
+        profile_controller.register(request);
     }
 }

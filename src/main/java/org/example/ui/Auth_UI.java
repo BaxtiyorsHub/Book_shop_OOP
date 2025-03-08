@@ -1,8 +1,11 @@
 package org.example.ui;
 
 import org.example.ScannerUtil.ScannerUtil;
+import org.example.requests.ProfileRequest;
 
 public class Auth_UI {
+
+    private Profile_UI profileUi = new Profile_UI();
 
     public void start() {
         while (true) {
@@ -14,13 +17,23 @@ public class Auth_UI {
             }
         }
     }
-    public static void login() {
+    public void login() {
 
     }
 
-    public static void register() {
+    public void register() {
         System.out.println("--Registration--");
         System.out.println("Enter your name: ");
+        String name = ScannerUtil.scanSRT.next();
+        System.out.println("Enter your phone: ");
+        String phone = ScannerUtil.scanSRT.next();
+        System.out.println("Enter your password: ");
+        String password = ScannerUtil.scanSRT.next();
+        System.out.println("Enter your age: ");
+        Short age = ScannerUtil.scanSRT.nextShort();
+        ProfileRequest request = new ProfileRequest(name, phone, password, age);
+        profileUi.register(request);
+
     }
     private int menu(){
         System.out.println("""
