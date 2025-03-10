@@ -31,12 +31,16 @@ public class dbProfile {
     private List<ProfileEntity> readData() {
         List<ProfileEntity> profiles = new ArrayList<>();
         try {
-            List<ProfileEntity> profileEntities = objectMapper.readValue(file, new TypeReference<List<ProfileEntity>>() {
-            });
-            if (profileEntities.isEmpty()) return new ArrayList<>();
+            try {
+                List<ProfileEntity> profileEntities = objectMapper.readValue(file, new TypeReference<List<ProfileEntity>>() {
+                });
+                if (profileEntities.isEmpty()) return new ArrayList<>();
+            } catch (Exception e) {
+                return profiles;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return profiles;
+        throw new RuntimeException();
     }
 }

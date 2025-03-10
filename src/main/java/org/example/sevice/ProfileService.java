@@ -11,12 +11,12 @@ public class ProfileService {
 
     public void register(ProfileRequest request) throws ProfileIncorrectException {
         checkRequest(request);
-        ProfileEntity profileEntity = new ProfileEntity();
-        profileEntity.setAge(request.age());
-        profileEntity.setName(request.name());
-        profileEntity.setPhone(request.phone());
-        profileEntity.setPassword(request.password());
-
+        ProfileEntity profileEntity = new ProfileEntity(
+                request.name(),
+                request.phone(),
+                request.password(),
+                request.age()
+        );;
         profileRepository.register(profileEntity);
     }
 

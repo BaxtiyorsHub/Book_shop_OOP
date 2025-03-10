@@ -24,20 +24,20 @@ public class Auth_UI {
 
     public void register() throws ProfileIncorrectException {
         System.out.println("--Registration--");
-        System.out.println("Enter your name: ");
+        System.out.print("Enter your name: ");
         String name = ScannerUtil.scanSRT.next();
-        System.out.println("Enter your phone: ");
+        System.out.print("Enter your phone: ");
         String phone = ScannerUtil.scanSRT.next();
-        System.out.println("Enter your password: ");
+        System.out.print("Enter your password: ");
         String password = ScannerUtil.scanSRT.next();
-        System.out.println("Enter your age: ");
+        System.out.print("Enter your age: ");
         Short age = ScannerUtil.scanSRT.nextShort();
         ProfileRequest request = new ProfileRequest(name, phone, password, age);
         profileUi.register(request);
 
     }
     private int menu(){
-        System.out.println("""
+        System.out.print("""
                 |---- MENU ----|
                 | 1 | LOG-IN   |
                 | 2 | REGISTER |
