@@ -2,6 +2,7 @@ package org.example.ui;
 
 import org.example.ScannerUtil.ScannerUtil;
 import org.example.controller.Profile_Controller;
+import org.example.exp.ProfileIncorrectException;
 import org.example.requests.ProfileRequest;
 
 public class Profile_UI {
@@ -59,7 +60,7 @@ public class Profile_UI {
         return ScannerUtil.scanNUM.nextInt();
     }
 
-    public void register(ProfileRequest request) {
+    public void register(ProfileRequest request) throws ProfileIncorrectException {
         profile_controller.register(request);
     }
 }

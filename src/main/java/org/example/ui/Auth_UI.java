@@ -1,13 +1,14 @@
 package org.example.ui;
 
 import org.example.ScannerUtil.ScannerUtil;
+import org.example.exp.ProfileIncorrectException;
 import org.example.requests.ProfileRequest;
 
 public class Auth_UI {
 
     private Profile_UI profileUi = new Profile_UI();
 
-    public void start() {
+    public void start() throws ProfileIncorrectException {
         while (true) {
             switch (menu()){
                 case 1 -> login();
@@ -21,7 +22,7 @@ public class Auth_UI {
 
     }
 
-    public void register() {
+    public void register() throws ProfileIncorrectException {
         System.out.println("--Registration--");
         System.out.println("Enter your name: ");
         String name = ScannerUtil.scanSRT.next();
