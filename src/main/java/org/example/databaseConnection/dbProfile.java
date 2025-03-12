@@ -28,7 +28,7 @@ public class dbProfile {
         }
     }
 
-    private List<ProfileEntity> readData() {
+    public List<ProfileEntity> readData() {
         List<ProfileEntity> profiles = new ArrayList<>();
         try {
             try {
@@ -41,6 +41,6 @@ public class dbProfile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        throw new RuntimeException();
+        return new ArrayList<>();
     }
 }

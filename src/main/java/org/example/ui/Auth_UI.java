@@ -18,8 +18,13 @@ public class Auth_UI {
             }
         }
     }
-    public void login() {
-
+    public void login() throws ProfileIncorrectException {
+        System.out.println("-- Login --");
+        System.out.println("Enter Phone Number :");
+        String phone = ScannerUtil.scanSRT.next();
+        System.out.println("Enter Password :");
+        String password = ScannerUtil.scanSRT.next();
+        profileUi.login(phone,password);
     }
 
     public void register() throws ProfileIncorrectException {
@@ -34,7 +39,6 @@ public class Auth_UI {
         Short age = ScannerUtil.scanSRT.nextShort();
         ProfileRequest request = new ProfileRequest(name, phone, password, age);
         profileUi.register(request);
-
     }
     private int menu(){
         System.out.print("""
@@ -47,5 +51,4 @@ public class Auth_UI {
                 | ENTER OPTION :""");
         return ScannerUtil.scanNUM.nextInt();
     }
-
 }

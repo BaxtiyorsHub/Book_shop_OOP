@@ -63,4 +63,8 @@ public class Profile_UI {
     public void register(ProfileRequest request) throws ProfileIncorrectException {
         profile_controller.register(request);
     }
+
+    public void login(String phone, String password) throws ProfileIncorrectException {
+        profile_controller.login(phone,password);
+    }
 }

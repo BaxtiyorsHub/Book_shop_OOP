@@ -11,4 +11,9 @@ public class Profile_Controller {
     public void register(ProfileRequest request) throws ProfileIncorrectException {
         if (request != null) profile_service.register(request);
     }
+
+    public void login(String phone, String password) throws ProfileIncorrectException {
+        profile_service.login(phone, password);
+
+    }
 }
