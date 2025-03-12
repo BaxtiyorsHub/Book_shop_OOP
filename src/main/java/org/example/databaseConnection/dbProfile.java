@@ -12,10 +12,11 @@ public class dbProfile {
     private File file = new File("profile.json");
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public void write(ProfileEntity profileEntity) {
+    public String write(ProfileEntity profileEntity) {
         List<ProfileEntity> profileEntities = new ArrayList<>();
         profileEntities.add(profileEntity);
         write(profileEntities);
+        return "Success";
     }
 
     public void write(List<ProfileEntity> profileEntityList) {

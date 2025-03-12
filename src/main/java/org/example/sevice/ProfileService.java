@@ -9,7 +9,7 @@ public class ProfileService {
 
     private ProfileRepository profileRepository = new ProfileRepository();
 
-    public void register(ProfileRequest request) throws ProfileIncorrectException {
+    public String register(ProfileRequest request) throws ProfileIncorrectException {
         checkRequest(request);
         ProfileEntity profileEntity = new ProfileEntity(
                 request.name(),
@@ -17,7 +17,7 @@ public class ProfileService {
                 request.password(),
                 request.age()
         );
-        profileRepository.register(profileEntity);
+        return profileRepository.register(profileEntity);
     }
 
     private void checkRequest(ProfileRequest request) throws ProfileIncorrectException {

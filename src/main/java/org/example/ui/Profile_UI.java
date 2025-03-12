@@ -2,6 +2,8 @@ package org.example.ui;
 
 import org.example.ScannerUtil.ScannerUtil;
 import org.example.controller.Profile_Controller;
+import org.example.entities.ProfileEntity;
+import org.example.enums.ProfileRole;
 import org.example.exp.ProfileIncorrectException;
 import org.example.requests.ProfileRequest;
 
@@ -60,11 +62,14 @@ public class Profile_UI {
         return ScannerUtil.scanNUM.nextInt();
     }
 
-    public void register(ProfileRequest request) throws ProfileIncorrectException {
-        profile_controller.register(request);
+    public String register(ProfileRequest request) throws ProfileIncorrectException {
+        return profile_controller.register(request);
     }
 
     public void login(String phone, String password) throws ProfileIncorrectException {
-        profile_controller.login(phone,password);
+        ProfileEntity login = profile_controller.login(phone, password);
+        boolean equals = login.getRole().equals(ProfileRole.ADMIN);
+        if (equals) adminStart();
+        userStart();
     }
 }
