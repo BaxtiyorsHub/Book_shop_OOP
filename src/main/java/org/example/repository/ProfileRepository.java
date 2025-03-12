@@ -13,9 +13,13 @@ public class ProfileRepository {
         return dbProfile.write(profileEntity);
     }
 
-    public List<ProfileEntity> getProfile(String phone, String password) {
-        return dbProfile.readData().stream().
-                filter(p -> p.getPhone().equals(phone) && p.getPassword().equals(password))
-                .toList();
+    public ProfileEntity getProfile(String phone, String password) {
+        List<ProfileEntity> profileEntities = dbProfile.readData();
+        for (ProfileEntity profileEntity : profileEntities) {
+            if (profileEntity.getPhone().equals(phone) && profileEntity.getPassword().equals(password)) {
+                return profileEntity;
+            }
+        }
+        return null;
     }
 }

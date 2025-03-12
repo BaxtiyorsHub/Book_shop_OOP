@@ -32,16 +32,13 @@ public class dbProfile {
     public List<ProfileEntity> readData() {
         List<ProfileEntity> profiles = new ArrayList<>();
         try {
-            try {
-                List<ProfileEntity> profileEntities = objectMapper.readValue(file, new TypeReference<List<ProfileEntity>>() {
-                });
-                if (profileEntities.isEmpty()) return new ArrayList<>();
-            } catch (Exception e) {
-                return profiles;
-            }
+            List<ProfileEntity> profileEntities = objectMapper.readValue(file, new TypeReference<List<ProfileEntity>>() {
+            });
+            if (profileEntities.isEmpty()) return new ArrayList<>();
+            return profileEntities;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ArrayList<>();
+        return profiles;
     }
 }

@@ -29,6 +29,6 @@ public class ProfileService {
 
     public ProfileEntity login(String phone, String password) throws ProfileIncorrectException {
         if (phone.isBlank() || password.isBlank()) throw new ProfileIncorrectException("Something went wrong");
-        return (ProfileEntity) profileRepository.getProfile(phone, password);
+        return profileRepository.getProfile(phone, password);
     }
 }

@@ -11,7 +11,7 @@ public class Profile_UI {
 
     private Profile_Controller profile_controller = new Profile_Controller();
 
-    private void adminStart() {
+    private void adminStart(ProfileEntity profile) {
         while (true) {
             switch (menu()){
 
@@ -38,9 +38,9 @@ public class Profile_UI {
     }
 
 
-    private void userStart() {
+    private void userStart(ProfileEntity login) {
         while (true) {
-            switch (menu()){
+            switch (userMenu()){
 
             }
         }
@@ -69,7 +69,7 @@ public class Profile_UI {
     public void login(String phone, String password) throws ProfileIncorrectException {
         ProfileEntity login = profile_controller.login(phone, password);
         boolean equals = login.getRole().equals(ProfileRole.ADMIN);
-        if (equals) adminStart();
-        userStart();
+        if (equals) adminStart(login);
+        userStart(login);
     }
 }
