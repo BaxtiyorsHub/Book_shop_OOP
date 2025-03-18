@@ -6,5 +6,13 @@
     "age": 11,
     "balance": 0.0,
     "role": "ADMIN"
+  },
+  {
+    "name": "as",
+    "phone": "asd",
+    "password": "22",
+    "age": 22,
+    "balance": 0.0,
+    "role": "USER"
   }
 ]
